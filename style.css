@@ -1,0 +1,28 @@
+body {
+	background-color:rgb(36, 73, 73);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+#canvas {
+	display: flex;
+	flex-direction: column;
+	border-style: solid;
+	border-color: black;
+	height: 60vh;
+	width: 60vh;
+}
+
+.col {
+	display: flex;
+	flex: 1;
+}
+
+.row {
+	flex: 1;
+	margin: 1px;
+	background-color:rgb(141, 45, 28);
+}
+
