@@ -45,3 +45,6 @@ button {
 	background-color:rgb(141, 45, 28);
 }
 
+.row.active {
+	background-color: yellow;
+}

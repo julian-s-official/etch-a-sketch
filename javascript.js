@@ -1,23 +1,42 @@
+let mouse = false;
+
+function addListeners() {
+  const rows = document.querySelectorAll('.row');
+
+  rows.forEach((row) => {
+    row.addEventListener('mouseover', () => {
+      if (mouse == true) {
+        row.classList.add('active');
+      }
+    })
+  });
+}
+
+function cleanCanvas() {
+    // remove all event listeners and empty canvas
+    const canvas = document.querySelector('#canvas');
+    canvas.innerHTML = '';
+    canvas.replaceWith(canvas.cloneNode(true));
+}
+
 function fillCanvas() {
-  squares = prompt("How many squares do you want?");
-  root = Math.sqrt(squares);
-
-  // check if is a square number
-  if (Number.isInteger(root) == false) {
-    alert("Not a square number!");
-    return
-  }
-  
-  // remove all existing squares
+  cleanCanvas();
+  noofsquares = prompt("How many columns do you want?");
   const canvas = document.querySelector('#canvas');
-  canvas.innerHTML = '';
 
-  for (let i = 0; i < root; i++) {
+  canvas.addEventListener('mousedown', () => {
+    mouse = true;
+  });
+  canvas.addEventListener('mouseup', () => {
+    mouse = false;
+  });
+
+  for (let i = 0; i < noofsquares; i++) {
     const column = document.createElement('div');
     column.classList.add('col');
 
     // create (square amount) of rows for each column
-    for (let j = 0; j < root; j++) {
+    for (let j = 0; j < noofsquares; j++) {
       const row = document.createElement('row');
       row.classList.add('row');
       column.appendChild(row);
@@ -25,6 +44,8 @@ function fillCanvas() {
 
     canvas.appendChild(column);
   }
+
+  addListeners();
 }
 
 const btn = document.querySelector('#init');
